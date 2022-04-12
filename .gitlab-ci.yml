@@ -16,12 +16,13 @@ optimize_tiles:
     - cd map-optimizer
     - npm install
     - cd ..
-    - mkdir /tmp/kosmos-weimar
-    - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o /tmp/kosmos-weimar/$(dirname $i); done
+    - mkdir kosmos-weimar
+    - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); done
   artifacts:
     expire_in: 1 hour
+    untracked: true
     paths:
-      - /tmp/kosmos-weimar
+      - kosmos-weimar/
 
 deploy_maps:
   stage: deploy
