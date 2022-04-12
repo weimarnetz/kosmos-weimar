@@ -5,12 +5,14 @@ optimize_tiles:
   before_script:
     - apt-get update -y && apt-get install -y rsync
   script:
+    - mkdir /tmp/src
+    - cd /tmp/src
     - git clone https://github.com/thecodingmachine/map-optimizer
     - cd map-optimizer
     - npm install
-    - cd ..
+    - cd ~
     - mkdir kosmos-weimar
-    - for i in **/*.json; do echo $i; ./map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
+    - for i in **/*.json; do echo $i; /tmp/src/map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
     expire_in: 1 hour
     untracked: true
