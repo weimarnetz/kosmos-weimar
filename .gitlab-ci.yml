@@ -11,7 +11,7 @@ optimize_tiles:
     - npm install
     - cd ../kosmos-weimar
     - mkdir dist
-    - for i in **/*.json; do echo $i; /tmp/src/map-optimizer/bin/tile-optimizer -i $i -o ./dist/$(dirname $i); rsync -av $(dirname $i)/ dist/$(dirname $i) --exclude="*.json" --exclude tiles ; done
+    - for i in **/*.json; do echo $i; ../map-optimizer/bin/tile-optimizer -i $i -o ./dist/$(dirname $i); rsync -av $(dirname $i)/ dist/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
     expire_in: 1 hour
     untracked: true
