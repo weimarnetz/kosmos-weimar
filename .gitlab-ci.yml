@@ -5,21 +5,18 @@ optimize_tiles:
   before_script:
     - apt-get update -y && apt-get install -y rsync
   script:
-    - pwd
-    - mkdir /tmp/src
-    - cd /tmp/src
+    - cd ..
     - git clone https://github.com/thecodingmachine/map-optimizer
     - cd map-optimizer
     - npm install
-    - cd ~
-    - pwd
-    - mkdir kosmos-weimar
-    - for i in **/*.json; do echo $i; /tmp/src/map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
+    - cd ../kosmos-weimar
+    - mkdir dist
+    - for i in **/*.json; do echo $i; /tmp/src/map-optimizer/bin/tile-optimizer -i $i -o ./dist/$(dirname $i); rsync -av $(dirname $i)/ dist/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
     expire_in: 1 hour
     untracked: true
     paths:
-      - kosmos-weimar/
+      - dist/
 
 deploy_maps:
   before_script:
@@ -34,6 +31,6 @@ deploy_maps:
   dependencies:
     - optimize_tiles
   script:
-    - rsync -avz "-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT" kosmos-weimar/ $SSH_USER@$SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/kosmos-weimar/
+    - rsync -avz "-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT" dist/ $SSH_USER@$SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/kosmos-weimar/
 
 
