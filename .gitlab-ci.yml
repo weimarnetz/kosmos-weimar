@@ -28,7 +28,7 @@ deploy_maps:
   dependencies:
     - optimize_tiles
   script:
-    - ls -al /tmp/kosmos-weimar
+    - ls -al
     #- rsync -avz '-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT' firmwares/ $SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/
 
 
