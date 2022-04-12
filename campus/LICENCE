@@ -1,0 +1,32 @@
+# LICENCE
+
+tbd
+
+## Assets
+
+### WORKADVENTURE SPECIFIC RESOURCES LICENSE
+
+* `WA_Special_Zones.png`
+
+The User shall handle assets with the WorkAdventure specific resources license as follows:
+
+1. These Assets may be used only in maps produced for WorkAdventure (SAAS or self-hosted version).
+
+2. These Assets may be modified (colors or size changed, inverted, trimmed, etc.) only for purposes of use in maps produced for WorkAdventure (SAAS or self-hosted version).
+
+3. These Assets or those modified pursuant to the previous item may undergo Distribution, etc. with maps produced for WorkAdventure. Furthermore, the User may not perform Distribution, etc. of individual Assets or those modified, or Distribution, etc. in combination with programs, etc. other than the map. However, the User may duplicate, transfer, publicly transmit, or enable transmission of personally-modified Assets to other Authorized Users free of charge.
+
+### Tiles by CERT (cert.ccc.de)
+
+These tiles are licenced with CC-BY-SA. They are taken from https://github.com/c3CERT/rc3_tiles/tree/master/imgs/tilesheets
+
+* `cert_safety.png`
+* `floortileset.png`
+* `food_and_drinks.png`
+
+### Tiles by ChaosZone
+
+These tiles are from ChaosZone: https://github.com/chaosz0ne/shared/tree/main
+
+* `ddr_buildings.png`
+* `misc.png`
