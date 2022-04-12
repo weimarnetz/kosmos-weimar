@@ -11,8 +11,8 @@ optimize_tiles:
     - git clone https://github.com/thecodingmachine/map-optimizer
     - cd map-optimizer
     - npm install
-    - pwd
     - cd ~
+    - pwd
     - mkdir kosmos-weimar
     - for i in **/*.json; do echo $i; /tmp/src/map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
