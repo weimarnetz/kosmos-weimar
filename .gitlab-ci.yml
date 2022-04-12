@@ -21,9 +21,12 @@ cache:
   paths:
     - node_modules/
 
-optize_tiles:
+optimize_tiles:
   script:
     - git clone https://github.com/thecodingmachine/map-optimizer
+    - cd map-optimizer
+    - npm install
+    - cd ..
     - mkdir /tmp/dist
     - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o /tmp/dist/$(dirname $i); done
     - ls -al /tmp/dist
