@@ -22,6 +22,7 @@ cache:
     - node_modules/
 
 optimize_tiles:
+  stage: build
   script:
     - git clone https://github.com/thecodingmachine/map-optimizer
     - cd map-optimizer
@@ -29,5 +30,10 @@ optimize_tiles:
     - cd ..
     - mkdir /tmp/dist
     - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o /tmp/dist/$(dirname $i); done
+
+deploy_maps:
+  stage: deploy
+  script:
     - ls -al /tmp/dist
+
 
