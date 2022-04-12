@@ -9,18 +9,6 @@ before_script:
   - ssh-keyscan -p $SSH_PORT $SSH_HOST >> ~/.ssh/known_hosts
   - chmod 644 ~/.ssh/known_hosts
 
-
-# Pick zero or more services to be used on all builds.
-# Only needed when using a docker container to run your tests in.
-# Check out: http://docs.gitlab.com/ee/ci/docker/using_docker_images.html#what-is-a-service
-services: []
-
-# This folder is cached between builds
-# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
-cache:
-  paths:
-    - node_modules/
-
 optimize_tiles:
   stage: build
   script:
@@ -28,12 +16,19 @@ optimize_tiles:
     - cd map-optimizer
     - npm install
     - cd ..
-    - mkdir /tmp/dist
-    - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o /tmp/dist/$(dirname $i); done
+    - mkdir /tmp/kosmos-weimar
+    - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o /tmp/kosmos-weimar/$(dirname $i); done
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - /tmp/kosmos-weimar
 
 deploy_maps:
   stage: deploy
+  dependencies:
+    - optimize_tiles
   script:
-    - ls -al /tmp/dist
+    - ls -al /tmp/kosmos-weimar
+    #- rsync -avz '-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT' firmwares/ $SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/
 
 
