@@ -10,7 +10,7 @@ optimize_tiles:
     - npm install
     - cd ..
     - mkdir kosmos-weimar
-    - for i in **/*.json; do ./map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
+    - for i in **/*.json; do echo $i; ./map-optimizer/bin/tile-optimizer -i $i -o ./kosmos-weimar/$(dirname $i); rsync -av $(dirname $i)/ kosmos-weimar/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
     expire_in: 1 hour
     untracked: true
@@ -19,7 +19,7 @@ optimize_tiles:
 
 deploy_maps:
   before_script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client rsync -y )'
+    - apt-get update -y && apt-get install openssh-client rsync -y
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | base64 -d | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
