@@ -30,6 +30,6 @@ deploy_maps:
   dependencies:
     - optimize_tiles
   script:
-    - rsync -avz '-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT' kosmos-weimar/ $SSH_USER@$SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/kosmos-weimar/
+    - rsync -avz "-e ssh -o StrictHostKeyChecking=no -p$SSH_PORT" kosmos-weimar/ $SSH_USER@$SSH_HOST:/opt/workadventure-xce/contrib-mr/www/maps/kosmos-weimar/
 
 
