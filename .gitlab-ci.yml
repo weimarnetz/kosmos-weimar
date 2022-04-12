@@ -23,5 +23,8 @@ cache:
 
 optize_tiles:
   script:
-    - ls -al
+    - git clone https://github.com/thecodingmachine/map-optimizer
+    - mkdir /tmp/dist
+    - for i in **/*.json; do /opt/map-optimizer/bin/tile-optimizer -i $i -o /tmp/dist/$(dirname $i); done
+    - ls -al /tmp/dist
 
