@@ -6,6 +6,7 @@ optimize_tiles:
     - apt-get update -y && apt-get install -y rsync
   script:
     - cd ..
+    - rm -rf map-optimizer
     - git clone https://github.com/thecodingmachine/map-optimizer
     - cd map-optimizer
     - npm install
