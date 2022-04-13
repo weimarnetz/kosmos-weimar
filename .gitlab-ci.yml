@@ -8,7 +8,7 @@ optimize_tiles:
     - cd /tmp/map-optimizer
     - npm install
   script:
-    - pwd
+    - cd $CI_PROJECT_DIR
     - mkdir dist
     - for i in **/*.json; do echo $i; /tmp/map-optimizer/bin/tile-optimizer -i $i -o ./dist/$(dirname $i); rsync -av $(dirname $i)/ dist/$(dirname $i) --exclude="*.json" --exclude tiles ; done
   artifacts:
