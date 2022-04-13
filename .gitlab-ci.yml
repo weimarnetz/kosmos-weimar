@@ -5,6 +5,7 @@ optimize_tiles:
   before_script:
     - apt-get update -y && apt-get install -y rsync
   script:
+    - echo $CI_PROJECT_DIR
     - cd ..
     - rm -rf map-optimizer
     - git clone https://github.com/thecodingmachine/map-optimizer
