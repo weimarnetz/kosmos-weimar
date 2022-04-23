@@ -348,7 +348,22 @@
         {
          "name":"mapCopyright",
          "type":"string",
-         "value":"First Iteration: Andi Br\u00e4u"
+         "value":"First Iteration: \n- Andi Br\u00e4u"
+        }, 
+        {
+         "name":"mapDescription",
+         "type":"string",
+         "value":"Das ist der Ankn\u00fcpfungspunkt f\u00fcr weitere Workadventures in und um Weimar.\n"
+        }, 
+        {
+         "name":"mapLink",
+         "type":"string",
+         "value":"https:\/\/git.bau-ha.us\/maschinenraum\/kosmos-weimar"
+        }, 
+        {
+         "name":"mapName",
+         "type":"string",
+         "value":"M18 Campus Bauhaus Uni Weimar"
         }],
  "renderorder":"right-down",
  "tiledversion":"1.8.4",
