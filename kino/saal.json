@@ -213,6 +213,12 @@
          "imagewidth":288,
          "margin":0,
          "name":"mapUtilities",
+         "properties":[
+                {
+                 "name":"tilesetCopyright",
+                 "type":"string",
+                 "value":"CC0 by CCCV, https:\/\/git.cccv.de\/rlab\/world-tiles"
+                }],
          "spacing":0,
          "tilecount":9,
          "tileheight":32,
@@ -226,6 +232,12 @@
          "imagewidth":1664,
          "margin":0,
          "name":"Kinosaal",
+         "properties":[
+                {
+                 "name":"tilesetCopyright",
+                 "type":"string",
+                 "value":"by flederrattie 2021"
+                }],
          "spacing":0,
          "tilecount":1040,
          "tileheight":32,
@@ -239,47 +251,15 @@
          "imagewidth":256,
          "margin":0,
          "name":"Exit",
-         "spacing":0,
-         "tilecount":16,
-         "tileheight":32,
-         "tilewidth":32
-        }, 
-        {
-         "columns":6,
-         "firstgid":4906,
-         "image":"..\/campus\/tiles\/WA_Special_Zones.png",
-         "imageheight":64,
-         "imagewidth":192,
-         "margin":0,
-         "name":"WA_Special_Zones",
          "properties":[
                 {
                  "name":"tilesetCopyright",
                  "type":"string",
-                 "value":"Workadventure by The Coding Machine"
+                 "value":"by kunstpixel https:\/\/github.com\/kunstpixel"
                 }],
          "spacing":0,
-         "tilecount":12,
+         "tilecount":16,
          "tileheight":32,
-         "tiles":[
-                {
-                 "id":2,
-                 "properties":[
-                        {
-                         "name":"collides",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }, 
-                {
-                 "id":3,
-                 "properties":[
-                        {
-                         "name":"silent",
-                         "type":"bool",
-                         "value":true
-                        }]
-                }],
          "tilewidth":32
         }],
  "tilewidth":32,
